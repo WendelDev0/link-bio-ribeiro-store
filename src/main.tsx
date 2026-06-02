@@ -1,6 +1,9 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { inject } from "@vercel/analytics";
 import "./styles.css";
+
+inject();
 
 const phone = "5527997249882";
 const wa = (msg: string) =>
@@ -62,36 +65,6 @@ function App() {
         Comprar pelo WhatsApp
         <span className="btn-arrow">→</span>
       </a>
-
-      {/* Secondary links */}
-      <div className="secondary-links">
-        <a
-          className="btn-secondary"
-          href="https://www.instagram.com/ribeiro_storecol/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <svg className="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-            <circle cx="12" cy="12" r="4" />
-            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
-          </svg>
-          @ribeiro_storecol
-        </a>
-
-        <a
-          className="btn-secondary"
-          href={wa("Oi Lucas! Quero saber os celulares disponíveis.")}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <svg className="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-            <rect x="5" y="2" width="14" height="20" rx="2" />
-            <line x1="12" y1="18" x2="12.01" y2="18" strokeLinecap="round" strokeWidth="2.5" />
-          </svg>
-          Ver celulares disponíveis
-        </a>
-      </div>
 
       {/* Location card */}
       <a
