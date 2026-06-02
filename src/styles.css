@@ -1,0 +1,264 @@
+:root {
+  color: #f4fff8;
+  background: #020604;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --green: #31f56e;
+  --green-dark: #0c8f3d;
+  --white: #f7fff9;
+  --muted: #b7c7bd;
+  --panel: rgba(8, 22, 14, 0.78);
+  --line: rgba(49, 245, 110, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(49, 245, 110, 0.18), transparent 32rem),
+    linear-gradient(145deg, #020604 0%, #06110b 45%, #020604 100%);
+}
+
+a {
+  color: inherit;
+}
+
+.page-shell {
+  width: min(100%, 520px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 32px 18px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+}
+
+.profile-wrap {
+  position: relative;
+  width: clamp(132px, 36vw, 178px);
+  aspect-ratio: 1;
+}
+
+.profile-glow {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: conic-gradient(from 120deg, var(--green), #ffffff, var(--green-dark), var(--green));
+  filter: drop-shadow(0 0 24px rgba(49, 245, 110, 0.42));
+}
+
+.profile-photo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #020604;
+}
+
+.identity {
+  display: grid;
+  gap: 8px;
+}
+
+.eyebrow {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--green);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(2.35rem, 12vw, 4.5rem);
+  line-height: 0.92;
+}
+
+.handle {
+  margin: 0;
+  color: var(--white);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.intro {
+  margin: 0 auto;
+  max-width: 29rem;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.stats {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.stats div,
+.trust div {
+  border: 1px solid var(--line);
+  background: rgba(247, 255, 249, 0.04);
+  backdrop-filter: blur(16px);
+}
+
+.stats div {
+  min-height: 74px;
+  border-radius: 8px;
+  padding: 12px 8px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 4px;
+}
+
+.stats strong {
+  color: var(--green);
+  font-size: 1.02rem;
+}
+
+.stats span {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.links {
+  display: grid;
+  gap: 12px;
+}
+
+.link-card {
+  min-height: 78px;
+  display: grid;
+  grid-template-columns: 50px 1fr 24px;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 16px 13px 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  text-decoration: none;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.link-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(49, 245, 110, 0.7);
+  background: rgba(9, 34, 19, 0.9);
+}
+
+.link-card.featured {
+  background: linear-gradient(135deg, #26d95f, #0b8f3c);
+  color: #021006;
+  border-color: rgba(247, 255, 249, 0.3);
+}
+
+.icon-box {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(49, 245, 110, 0.13);
+  color: var(--green);
+}
+
+.featured .icon-box {
+  background: rgba(2, 16, 6, 0.16);
+  color: #021006;
+}
+
+.link-copy {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+  text-align: left;
+}
+
+.link-copy strong {
+  font-size: 1rem;
+}
+
+.link-copy small {
+  color: var(--muted);
+  font-size: 0.83rem;
+  line-height: 1.35;
+}
+
+.featured .link-copy small {
+  color: rgba(2, 16, 6, 0.78);
+}
+
+.trust {
+  display: grid;
+  gap: 8px;
+}
+
+.trust div {
+  min-height: 44px;
+  border-radius: 8px;
+  padding: 10px 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.trust svg {
+  color: var(--green);
+  flex: 0 0 auto;
+}
+
+@media (max-width: 390px) {
+  .page-shell {
+    padding-inline: 12px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .link-card {
+    grid-template-columns: 44px 1fr 20px;
+    padding-inline: 11px;
+  }
+
+  .icon-box {
+    width: 44px;
+    height: 44px;
+  }
+}
