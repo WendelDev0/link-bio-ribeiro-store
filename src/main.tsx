@@ -1,143 +1,103 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import {
-  BadgeCheck,
-  ChevronRight,
-  Instagram,
-  MapPin,
-  MessageCircle,
-  Phone,
-  ShieldCheck,
-  ShoppingBag,
-  Smartphone,
-  Star,
-} from "lucide-react";
 import "./styles.css";
 
 const phone = "5527997249882";
-const whatsappMessage = encodeURIComponent(
-  "Oi Lucas! Vim pelo link da Ribeiro Store e quero atendimento."
-);
-
-const links = [
-  {
-    title: "Comprar pelo WhatsApp",
-    text: "Atendimento direto com Lucas Ribeiro",
-    href: `https://wa.me/${phone}?text=${whatsappMessage}`,
-    icon: MessageCircle,
-    featured: true,
-  },
-  {
-    title: "Ver celulares disponíveis",
-    text: "Ofertas, usados selecionados e lançamentos",
-    href: `https://wa.me/${phone}?text=${encodeURIComponent(
-      "Oi Lucas! Quero ver os celulares disponíveis na Ribeiro Store."
-    )}`,
-    icon: Smartphone,
-  },
-  {
-    title: "Garantia e suporte",
-    text: "Tire dúvidas sobre garantia e assistência",
-    href: `https://wa.me/${phone}?text=${encodeURIComponent(
-      "Oi Lucas! Quero tirar uma dúvida sobre garantia e suporte."
-    )}`,
-    icon: ShieldCheck,
-  },
-  {
-    title: "Instagram da loja",
-    text: "@ribeiro_storecol",
-    href: "https://www.instagram.com/ribeiro_storecol/",
-    icon: Instagram,
-  },
-  {
-    title: "Localização",
-    text: "Ribeiro Store em Colatina, ES",
-    href: "https://www.google.com/maps/search/?api=1&query=Ribeiro%20Store%20Colatina%20ES",
-    icon: MapPin,
-  },
-];
+const wa = (msg: string) =>
+  `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
 
 function App() {
   return (
     <main className="page-shell">
+      {/* Profile */}
       <section className="bio">
         <div className="profile-wrap">
-          <span className="profile-glow" />
+          <span className="profile-ring" />
           <img
             className="profile-photo"
             src="/lucas-ribeiro.jpg"
-            alt="Lucas Ribeiro da Ribeiro Store"
+            alt="Lucas Ribeiro"
           />
+          <span className="badge">✓</span>
         </div>
 
         <div className="identity">
-          <p className="eyebrow">
-            <BadgeCheck size={16} aria-hidden="true" />
-            Atendimento premium
-          </p>
           <h1>Lucas Ribeiro</h1>
-          <p className="handle">RIBEIRO STORE | CELULARES | COLATINA | ES</p>
-          <p className="intro">
-            A mais de 6 anos realizando sonhos com celulares, garantia e
-            atendimento próximo do jeito que o cliente merece.
+          <p className="store-tag">RIBEIRO STORE · Colatina, ES</p>
+          <p className="bio-text">
+            Especialista em celulares há 6 anos. Atendimento direto,
+            garantia real e os melhores preços da região.
           </p>
         </div>
 
-        <div className="stats" aria-label="Destaques da Ribeiro Store">
-          <div>
+        <div className="stats">
+          <div className="stat">
             <strong>6+</strong>
-            <span>anos de loja</span>
+            <span>anos</span>
           </div>
-          <div>
+          <div className="stat-divider" />
+          <div className="stat">
             <strong>1 ano</strong>
-            <span>de garantia</span>
+            <span>garantia</span>
           </div>
-          <div>
-            <strong>Colatina</strong>
-            <span>ES</span>
+          <div className="stat-divider" />
+          <div className="stat">
+            <strong>100%</strong>
+            <span>confiança</span>
           </div>
         </div>
       </section>
 
-      <section className="links" aria-label="Links principais">
-        {links.map((item) => {
-          const Icon = item.icon;
+      {/* Primary CTA */}
+      <a
+        className="btn-primary"
+        href={wa("Oi Lucas! Vim pelo link e quero comprar um celular.")}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <svg className="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.175a.75.75 0 0 0 .916.919l5.42-1.464A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.712 9.712 0 0 1-4.964-1.363l-.355-.213-3.679.994.984-3.596-.232-.371A9.712 9.712 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z" />
+        </svg>
+        Comprar pelo WhatsApp
+        <span className="btn-arrow">→</span>
+      </a>
 
-          return (
-            <a
-              className={`link-card ${item.featured ? "featured" : ""}`}
-              href={item.href}
-              key={item.title}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="icon-box">
-                <Icon size={22} aria-hidden="true" />
-              </span>
-              <span className="link-copy">
-                <strong>{item.title}</strong>
-                <small>{item.text}</small>
-              </span>
-              <ChevronRight size={22} aria-hidden="true" />
-            </a>
-          );
-        })}
-      </section>
+      {/* Secondary links */}
+      <div className="secondary-links">
+        <a
+          className="btn-secondary"
+          href="https://www.instagram.com/ribeiro_storecol/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <svg className="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
+          </svg>
+          @ribeiro_storecol
+        </a>
 
-      <section className="trust">
-        <div>
-          <Star size={18} aria-hidden="true" />
-          <span>Atendimento rápido</span>
-        </div>
-        <div>
-          <ShoppingBag size={18} aria-hidden="true" />
-          <span>Celulares selecionados</span>
-        </div>
-        <div>
-          <Phone size={18} aria-hidden="true" />
-          <span>(27) 99724-9882</span>
-        </div>
-      </section>
+        <a
+          className="btn-secondary"
+          href={wa("Oi Lucas! Quero saber os celulares disponíveis.")}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <svg className="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+            <rect x="5" y="2" width="14" height="20" rx="2" />
+            <line x1="12" y1="18" x2="12.01" y2="18" strokeLinecap="round" strokeWidth="2.5" />
+          </svg>
+          Ver celulares disponíveis
+        </a>
+      </div>
+
+      <footer className="footer">
+        <span>(27) 99724-9882</span>
+        <span className="dot" />
+        <span>Colatina, ES</span>
+      </footer>
     </main>
   );
 }
