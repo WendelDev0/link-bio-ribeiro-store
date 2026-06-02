@@ -93,6 +93,67 @@ function App() {
         </a>
       </div>
 
+      {/* Location card */}
+      <a
+        className="location-card"
+        href="https://www.google.com/maps/place/Ribeiro+Store/@-19.5222165,-40.6407297,17z/data=!3m1!4b1!4m6!3m5!1s0xb7070e049de051:0x5352ffd6731d18dc!8m2!3d-19.5222216!4d-40.6381548!16s%2Fg%2F11k_y7t62w"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Abrir no Google Maps"
+      >
+        <div className="map-preview" aria-hidden="true">
+          <div className="map-grid">
+            {Array.from({ length: 30 }).map((_, i) => (
+              <span key={i} className="map-cell" />
+            ))}
+          </div>
+          <div className="map-roads">
+            <span className="road road-h" style={{ top: "38%" }} />
+            <span className="road road-h" style={{ top: "68%" }} />
+            <span className="road road-v" style={{ left: "32%" }} />
+            <span className="road road-v" style={{ left: "62%" }} />
+          </div>
+          <div className="map-pin-wrap">
+            <svg className="map-pin" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+          </div>
+          <div className="map-open-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="11" height="11">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+            Abrir Maps
+          </div>
+        </div>
+
+        <div className="location-info">
+          <div className="location-row">
+            <svg className="loc-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+            <div>
+              <p className="loc-address">Av. Silvio Avidos, 927</p>
+              <p className="loc-sub">Próximo à Igreja Mundial · São Silvano</p>
+            </div>
+          </div>
+
+          <div className="hours">
+            <div className="hours-row">
+              <span className="hours-dot open" />
+              <span className="hours-label">Seg – Sex</span>
+              <span className="hours-time">08:30 – 18:00</span>
+            </div>
+            <div className="hours-row">
+              <span className="hours-dot open" />
+              <span className="hours-label">Sábado</span>
+              <span className="hours-time">08:00 – 12:30</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
       <footer className="footer">
         <span>(27) 99724-9882</span>
         <span className="dot" />
